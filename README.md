@@ -9,7 +9,7 @@ cd /opt/mqm/bin
       QMGR="<QMGR_NAME>"
       
       # Extract queues with CURDEPTH > 0
-      QUEUES=$(echo "dis ql(*) where(curdepth gt 0)" ipprocs opprocs |
+      QUEUES=$(echo "dis ql(*) where(curdepth gt 0) ipprocs opprocs " |
                runmqsc "$QMGR" |
                awk -F'[()]' '/^[[:space:]]*QUEUE\(/ {print $2}')
       
